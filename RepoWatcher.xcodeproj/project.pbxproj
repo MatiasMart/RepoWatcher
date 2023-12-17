@@ -20,6 +20,8 @@
 		62B26DF12B2F4A2A001FD4FA /* RepoWatcherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 62B26DDF2B2F4A28001FD4FA /* RepoWatcherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		62B26DF72B2F5734001FD4FA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF62B2F5734001FD4FA /* Repository.swift */; };
 		62B26DF82B2F5734001FD4FA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF62B2F5734001FD4FA /* Repository.swift */; };
+		62B26DFA2B2F9B1A001FD4FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */; };
+		62B26DFB2B2F9B1A001FD4FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		62B26DEC2B2F4A2A001FD4FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62B26DEE2B2F4A2A001FD4FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62B26DF62B2F5734001FD4FA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 				62B26DE62B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift */,
 				62B26DE82B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift */,
 				62B26DEA2B2F4A28001FD4FA /* RepoWatcherWidget.swift */,
+				62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */,
 				62B26DF62B2F5734001FD4FA /* Repository.swift */,
 				62B26DEC2B2F4A2A001FD4FA /* Assets.xcassets */,
 				62B26DEE2B2F4A2A001FD4FA /* Info.plist */,
@@ -244,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B26DFA2B2F9B1A001FD4FA /* NetworkManager.swift in Sources */,
 				62B26DD02B2F49C9001FD4FA /* ContentView.swift in Sources */,
 				62B26DCE2B2F49C9001FD4FA /* RepoWatcherApp.swift in Sources */,
 				62B26DF72B2F5734001FD4FA /* Repository.swift in Sources */,
@@ -256,6 +261,7 @@
 			files = (
 				62B26DEB2B2F4A28001FD4FA /* RepoWatcherWidget.swift in Sources */,
 				62B26DE72B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift in Sources */,
+				62B26DFB2B2F9B1A001FD4FA /* NetworkManager.swift in Sources */,
 				62B26DE92B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift in Sources */,
 				62B26DF82B2F5734001FD4FA /* Repository.swift in Sources */,
 			);
