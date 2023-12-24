@@ -25,10 +25,26 @@ struct Provider: TimelineProvider {
             let nextUpdate = Date().addingTimeInterval(43200) // 12 hours in seconds
             
             do {
+                // Get Top Repo
                 var repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.googleSignIn)
+                // Get the avatar image of the repo
                 let avatarImageData = await NetworkManager.shared.downloadImageData(from: repo.owner.avatarUrl)
+                // Set the avatar data
                 repo.avatarData = avatarImageData ?? Data()
-                let entry = RepoEntry(date: .now, repo: repo, bottomRepo: nil)
+                
+                //Get Bottom Repo if in Large Widget
+                var bottomRepo: Repository?
+                if context.family == .systemLarge {
+                    // Get Top Repo
+                     bottomRepo = try await NetworkManager.shared.getRepo(atUrl: repoURL.swiftNews)
+                    // Get the avatar image of the repo
+                    let avatarImageData = await NetworkManager.shared.downloadImageData(from: bottomRepo!.owner.avatarUrl)
+                    // Set the avatar data
+                    bottomRepo!.avatarData = avatarImageData ?? Data()
+                }
+                
+                // Create entry & Timeline
+                let entry = RepoEntry(date: .now, repo: repo, bottomRepo: bottomRepo)
                 //Reload policy
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
@@ -57,7 +73,9 @@ struct RepoWatcherWidgetEntryView : View {
         case .systemLarge:
             VStack(spacing: 36){
                 RepoMediumView(repo: entry.repo)
-                RepoMediumView(repo: MockData.repoTwo)
+                if let bottomRepo = entry.bottomRepo{
+                    RepoMediumView(repo: bottomRepo)
+                }
             }
         case .systemSmall, .systemExtraLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline:
             EmptyView()
