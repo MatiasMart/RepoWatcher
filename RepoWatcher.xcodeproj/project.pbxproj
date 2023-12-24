@@ -13,6 +13,8 @@
 		624DF3EF2B3899F60018F7B6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */; };
 		624DF3F02B3899F80018F7B6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624DF3EC2B38978B0018F7B6 /* MockData.swift */; };
 		624DF3F12B3899FA0018F7B6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF62B2F5734001FD4FA /* Repository.swift */; };
+		624DF3F32B38BC360018F7B6 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624DF3F22B38BC360018F7B6 /* WidgetBundle.swift */; };
+		624DF3F52B38C2EA0018F7B6 /* ContributorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624DF3F42B38C2EA0018F7B6 /* ContributorWidget.swift */; };
 		62B26DCE2B2F49C9001FD4FA /* RepoWatcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DCD2B2F49C9001FD4FA /* RepoWatcherApp.swift */; };
 		62B26DD02B2F49C9001FD4FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DCF2B2F49C9001FD4FA /* ContentView.swift */; };
 		62B26DD22B2F49CB001FD4FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B26DD12B2F49CB001FD4FA /* Assets.xcassets */; };
@@ -21,7 +23,7 @@
 		62B26DE42B2F4A28001FD4FA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B26DE32B2F4A28001FD4FA /* SwiftUI.framework */; };
 		62B26DE72B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DE62B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift */; };
 		62B26DE92B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DE82B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift */; };
-		62B26DEB2B2F4A28001FD4FA /* RepoWatcherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DEA2B2F4A28001FD4FA /* RepoWatcherWidget.swift */; };
+		62B26DEB2B2F4A28001FD4FA /* CompactRepoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DEA2B2F4A28001FD4FA /* CompactRepoWidget.swift */; };
 		62B26DED2B2F4A2A001FD4FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B26DEC2B2F4A2A001FD4FA /* Assets.xcassets */; };
 		62B26DF12B2F4A2A001FD4FA /* RepoWatcherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 62B26DDF2B2F4A28001FD4FA /* RepoWatcherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		62B26DF72B2F5734001FD4FA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DF62B2F5734001FD4FA /* Repository.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		624222792B38778F00EF7256 /* RepoMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoMediumView.swift; sourceTree = "<group>"; };
 		624DF3EC2B38978B0018F7B6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		624DF3F22B38BC360018F7B6 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		624DF3F42B38C2EA0018F7B6 /* ContributorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorWidget.swift; sourceTree = "<group>"; };
 		62B26DCA2B2F49C9001FD4FA /* RepoWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepoWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B26DCD2B2F49C9001FD4FA /* RepoWatcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWatcherApp.swift; sourceTree = "<group>"; };
 		62B26DCF2B2F49C9001FD4FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,7 +69,7 @@
 		62B26DE32B2F4A28001FD4FA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		62B26DE62B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWatcherWidgetBundle.swift; sourceTree = "<group>"; };
 		62B26DE82B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWatcherWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		62B26DEA2B2F4A28001FD4FA /* RepoWatcherWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWatcherWidget.swift; sourceTree = "<group>"; };
+		62B26DEA2B2F4A28001FD4FA /* CompactRepoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactRepoWidget.swift; sourceTree = "<group>"; };
 		62B26DEC2B2F4A2A001FD4FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62B26DEE2B2F4A2A001FD4FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62B26DF62B2F5734001FD4FA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -143,9 +147,11 @@
 		62B26DE52B2F4A28001FD4FA /* RepoWatcherWidget */ = {
 			isa = PBXGroup;
 			children = (
+				624DF3F42B38C2EA0018F7B6 /* ContributorWidget.swift */,
+				624DF3F22B38BC360018F7B6 /* WidgetBundle.swift */,
 				62B26DE62B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift */,
 				62B26DE82B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift */,
-				62B26DEA2B2F4A28001FD4FA /* RepoWatcherWidget.swift */,
+				62B26DEA2B2F4A28001FD4FA /* CompactRepoWidget.swift */,
 				624222792B38778F00EF7256 /* RepoMediumView.swift */,
 				62B26DF62B2F5734001FD4FA /* Repository.swift */,
 				624DF3EC2B38978B0018F7B6 /* MockData.swift */,
@@ -268,8 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624DF3F32B38BC360018F7B6 /* WidgetBundle.swift in Sources */,
 				624DF3EF2B3899F60018F7B6 /* NetworkManager.swift in Sources */,
-				62B26DEB2B2F4A28001FD4FA /* RepoWatcherWidget.swift in Sources */,
+				62B26DEB2B2F4A28001FD4FA /* CompactRepoWidget.swift in Sources */,
+				624DF3F52B38C2EA0018F7B6 /* ContributorWidget.swift in Sources */,
 				624DF3EE2B3899F40018F7B6 /* ContentView.swift in Sources */,
 				624DF3F12B3899FA0018F7B6 /* Repository.swift in Sources */,
 				62B26DE72B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift in Sources */,
