@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6242227A2B38778F00EF7256 /* RepoMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624222792B38778F00EF7256 /* RepoMediumView.swift */; };
 		62B26DCE2B2F49C9001FD4FA /* RepoWatcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DCD2B2F49C9001FD4FA /* RepoWatcherApp.swift */; };
 		62B26DD02B2F49C9001FD4FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B26DCF2B2F49C9001FD4FA /* ContentView.swift */; };
 		62B26DD22B2F49CB001FD4FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B26DD12B2F49CB001FD4FA /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		624222792B38778F00EF7256 /* RepoMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoMediumView.swift; sourceTree = "<group>"; };
 		62B26DCA2B2F49C9001FD4FA /* RepoWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepoWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B26DCD2B2F49C9001FD4FA /* RepoWatcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWatcherApp.swift; sourceTree = "<group>"; };
 		62B26DCF2B2F49C9001FD4FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				62B26DEA2B2F4A28001FD4FA /* RepoWatcherWidget.swift */,
 				62B26DF92B2F9B1A001FD4FA /* NetworkManager.swift */,
 				62B26DF62B2F5734001FD4FA /* Repository.swift */,
+				624222792B38778F00EF7256 /* RepoMediumView.swift */,
 				62B26DEC2B2F4A2A001FD4FA /* Assets.xcassets */,
 				62B26DEE2B2F4A2A001FD4FA /* Info.plist */,
 			);
@@ -262,6 +265,7 @@
 				62B26DEB2B2F4A28001FD4FA /* RepoWatcherWidget.swift in Sources */,
 				62B26DE72B2F4A28001FD4FA /* RepoWatcherWidgetBundle.swift in Sources */,
 				62B26DFB2B2F9B1A001FD4FA /* NetworkManager.swift in Sources */,
+				6242227A2B38778F00EF7256 /* RepoMediumView.swift in Sources */,
 				62B26DE92B2F4A28001FD4FA /* RepoWatcherWidgetLiveActivity.swift in Sources */,
 				62B26DF82B2F5734001FD4FA /* Repository.swift in Sources */,
 			);

@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> RepoEntry {
-        RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
+        RepoEntry(date: Date(), repo: Repository.placeholder)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (RepoEntry) -> ()) {
-        let entry = RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
+        let entry = RepoEntry(date: Date(), repo: Repository.placeholder)
         completion(entry)
     }
     
@@ -25,9 +25,10 @@ struct Provider: TimelineProvider {
             let nextUpdate = Date().addingTimeInterval(43200) // 12 hours in seconds
             
             do {
-                let repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.swiftNews)
+                var repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.googleSignIn)
                 let avatarImageData = await NetworkManager.shared.downloadImageData(from: repo.owner.avatarUrl)
-                let entry = RepoEntry(date: .now, repo: repo, avatarImageData: avatarImageData ?? Data())
+                repo.avatarData = avatarImageData ?? Data()
+                let entry = RepoEntry(date: .now, repo: repo)
                 //Reload policy
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
@@ -41,68 +42,28 @@ struct Provider: TimelineProvider {
 struct RepoEntry: TimelineEntry {
     let date: Date
     let repo: Repository
-    let avatarImageData: Data
     
 }
 
 struct RepoWatcherWidgetEntryView : View {
+    @Environment(\.widgetFamily) var family
     var entry: RepoEntry
     //We create the formatter here because its a memory consumer task and we don't want to run it every time we call the function calculateDatSinceLastActivity
-    let formatter = ISO8601DateFormatter() //This formatter let us work with string dates
-    var daysSinceLastActivity: Int {
-        calculateDatSinceLastActivity(from: entry.repo.pushedAt)
-    }
-    
     var body: some View {
-        HStack{
-            VStack(alignment: .leading) {
-                HStack{
-                    Image(uiImage: UIImage(data: entry.avatarImageData) ?? UIImage(named: "avatar")!)
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                    Text(entry.repo.name)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .minimumScaleFactor(0.6)
-                        .lineLimit(1)
-                }
-                .padding(.bottom, 6)
-                
-                HStack{
-                    StartLabel(value: entry.repo.watchers, systemImageName: "star.fill")
-                    StartLabel(value: entry.repo.forks, systemImageName: "tuningfork")
-                    StartLabel(value: entry.repo.openIssues, systemImageName: "exclamationmark.triangle.fill")
-                }
-                .padding(.leading, 8)
+        switch family{
+        case .systemMedium:
+            RepoMediumView(repo: entry.repo)
+        case .systemLarge:
+            VStack(spacing: 36){
+                RepoMediumView(repo: entry.repo)
+                RepoMediumView(repo: entry.repo)
             }
-            
-            Spacer()
-            
-            VStack{
-                Text("\(daysSinceLastActivity)")
-                    .bold()
-                    .font(.system(size: 70))
-                    .frame(width: 90)
-                    .minimumScaleFactor(0.6)
-                    .lineLimit(1)
-                    .foregroundStyle(daysSinceLastActivity > 50 ? .pink : .green)
-                
-                Text("Days ago")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            } 
-            
+        case .systemSmall, .systemExtraLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline:
+            EmptyView()
+        @unknown default:
+            EmptyView()
         }
         
-    }
-    
-    //Function to calculate how many day past since the last update
-    func calculateDatSinceLastActivity(from dateString: String) -> Int {
-        let lastActivityDate = formatter.date(from: dateString) ?? .now
-        //calcutaion of days since last Activity to now
-        let daySinceLastActity = Calendar.current.dateComponents([.day], from: lastActivityDate, to: .now).day ?? 0
-        return daySinceLastActity
     }
     
 }
@@ -121,32 +82,17 @@ struct RepoWatcherWidget: Widget {
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
-        .supportedFamilies([.systemMedium])
+        .configurationDisplayName("Repo Watcher")
+        .description("Keep an eye on one or two Github Repositories")
+        .supportedFamilies([.systemMedium, .systemLarge])
     }
 }
 
-#Preview(as: .systemMedium) {
+#Preview(as: .systemLarge) {
     RepoWatcherWidget()
 } timeline: {
-    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
-    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
+    RepoEntry(date: .now, repo: Repository.placeholder)
+    RepoEntry(date: .now, repo: Repository.placeholder)
 }
 
-fileprivate struct StartLabel: View {
-    
-    let value: Int
-    let systemImageName: String
-    
-    var body: some View {
-        Label{
-            Text("\(value)")
-                .font(.footnote)
-        } icon: {
-            Image(systemName: systemImageName)
-                .foregroundStyle(.green)
-        }
-        .fontWeight(.medium)
-    }
-}
+

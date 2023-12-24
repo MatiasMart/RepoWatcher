@@ -33,7 +33,8 @@ class NetworkManager {
         
         // If the decode it's successful we return a Repository
         do {
-            return try decoder.decode(Repository.self, from: data)
+            let codigData = try decoder.decode(Repository.CodingData.self, from: data)
+            return codigData.repo
         } catch {
             throw NetworkError.invalidRepoData
         }
