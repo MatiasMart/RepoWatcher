@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> RepoEntry {
-        RepoEntry(date: Date(), repo: Repository.placeholder)
+        RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
     }
     
     func getSnapshot(in context: Context, completion: @escaping (RepoEntry) -> ()) {
-        let entry = RepoEntry(date: Date(), repo: Repository.placeholder)
+        let entry = RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
         completion(entry)
     }
     
@@ -25,8 +25,9 @@ struct Provider: TimelineProvider {
             let nextUpdate = Date().addingTimeInterval(43200) // 12 hours in seconds
             
             do {
-                let repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.googleSignIn)
-                let entry = RepoEntry(date: .now, repo: repo)
+                let repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.swiftNews)
+                let avatarImageData = await NetworkManager.shared.downloadImageData(from: repo.owner.avatarUrl)
+                let entry = RepoEntry(date: .now, repo: repo, avatarImageData: avatarImageData ?? Data())
                 //Reload policy
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
@@ -40,6 +41,7 @@ struct Provider: TimelineProvider {
 struct RepoEntry: TimelineEntry {
     let date: Date
     let repo: Repository
+    let avatarImageData: Data
     
 }
 
@@ -55,8 +57,10 @@ struct RepoWatcherWidgetEntryView : View {
         HStack{
             VStack(alignment: .leading) {
                 HStack{
-                    Circle()
-                        .frame(width: 60, height: 50)
+                    Image(uiImage: UIImage(data: entry.avatarImageData) ?? UIImage(named: "avatar")!)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
                     Text(entry.repo.name)
                         .font(.title2)
                         .fontWeight(.bold)
@@ -126,8 +130,8 @@ struct RepoWatcherWidget: Widget {
 #Preview(as: .systemMedium) {
     RepoWatcherWidget()
 } timeline: {
-    RepoEntry(date: .now, repo: Repository.placeholder)
-    RepoEntry(date: .now, repo: Repository.placeholder)
+    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
+    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
 }
 
 fileprivate struct StartLabel: View {
