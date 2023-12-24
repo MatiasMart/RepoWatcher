@@ -17,15 +17,6 @@ struct Repository {
     let openIssues: Int
     let pushedAt: String
     var avatarData: Data
-    // We create a placeholder with info so we can show it when oreviewing the widgter
-    static let placeholder = Repository(name: "Your Repo",
-                                        owner: Owner(avatarUrl: ""),
-                                        hasIssues: true,
-                                        forks: 65,
-                                        watchers: 123,
-                                        openIssues: 55,
-                                        pushedAt: "2022-12-01T14:31:24Z",
-                                        avatarData: Data())
 }
 
 extension Repository {

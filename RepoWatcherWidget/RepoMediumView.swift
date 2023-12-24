@@ -73,7 +73,7 @@ struct RepoMediumView: View {
 }
 
 #Preview {
-    RepoMediumView(repo: Repository.placeholder)
+    RepoMediumView(repo: MockData.repoOne)
 }
 
 fileprivate struct StartLabel: View {
