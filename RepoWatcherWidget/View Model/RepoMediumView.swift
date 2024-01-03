@@ -53,14 +53,14 @@ struct RepoMediumView: View {
                     .minimumScaleFactor(0.6)
                     .lineLimit(1)
                     .foregroundStyle(daysSinceLastActivity > 50 ? .pink : .green)
+                    .contentTransition(.numericText())
                 
                 Text("Days ago")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
-            
         }
-        
+        .containerBackground(for: .widget) { }
     }
     
     //Function to calculate how many day past since the last update
@@ -72,9 +72,22 @@ struct RepoMediumView: View {
     }
 }
 
-#Preview {
-    RepoMediumView(repo: MockData.repoOne)
+#Preview(as: .systemMedium) {
+    CompactRepoWidget()
+} timeline: {
+    CompactRepoEntry(
+        date: .now,
+        repo: MockData.repoOne,
+        bottomRepo: MockData.repoTwo
+    )
+    CompactRepoEntry(
+        date: .now,
+        repo: MockData.repoOneV2,
+        bottomRepo: MockData.repoTwo
+    )
 }
+
+
 
 fileprivate struct StartLabel: View {
     
@@ -85,6 +98,7 @@ fileprivate struct StartLabel: View {
         Label{
             Text("\(value)")
                 .font(.footnote)
+                .contentTransition(.numericText())
         } icon: {
             Image(systemName: systemImageName)
                 .foregroundStyle(.green)
