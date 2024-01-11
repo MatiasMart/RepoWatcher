@@ -5,7 +5,7 @@ Contents
 
 ---
 
-###Functionality
+### Functionality
 
 A medium and large sized Widget that gets a GitHub repository and displays the following infos:
 
@@ -17,14 +17,14 @@ A medium and large sized Widget that gets a GitHub repository and displays the f
 - Number of open issues
 - A large sized Widget that gets the (top 4) contributors of a GitHub repository and displays the following infos:
 
-###Login name
+### Login name
 - Avatar
 - Number of contributions made
 - An App Group is setup among the GitHubRepoWatcher and the RepoWatcherIntents target to share the same UserDefaults database.
 
 ---
 
-###Tech Stack
+### Tech Stack
 
 - Xcode 15.1
 - Swift 5.9
@@ -32,7 +32,7 @@ A medium and large sized Widget that gets a GitHub repository and displays the f
 
 ---
 
-###Frameworks
+### Frameworks
 
 - SwiftUI
 - WidgetKit
@@ -40,7 +40,7 @@ A medium and large sized Widget that gets a GitHub repository and displays the f
 
 ---
 
-###Device Compatibility
+### Device Compatibility
 
 - iPhone >= iOS17.0+
 - iPad >= iOS17.0+
