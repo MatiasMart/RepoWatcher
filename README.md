@@ -1,6 +1,11 @@
+
+![8bb2a6d2-f68b-4c93-aa0f-d177fe3e1f29](https://github.com/MatiasMart/RepoWatcher/assets/54157579/3c9af3ea-f9ee-4cd8-b2e2-af138099c3d6)
+
+
 ## This project involves creating sophisticated iOS17+ widgets to gain insights into developing medium and large widgets that utilize network requests for updating their content.
 Contents
 
+![Green Gradient Application Showcase Presentation](https://github.com/MatiasMart/RepoWatcher/assets/54157579/926d8ad7-0731-41e1-b0d6-e19718e9859b)
 
 
 ---
@@ -15,12 +20,17 @@ A medium and large sized Widget that gets a GitHub repository and displays the f
 - Number of watchers
 - Number of forks
 - Number of open issues
-- A large sized Widget that gets the (top 4) contributors of a GitHub repository and displays the following infos:
 
-### Login name
+![Green Gradient Application Showcase Presentation-3](https://github.com/MatiasMart/RepoWatcher/assets/54157579/8e674d17-9f57-420b-9a96-50c6f92d0f09)
+
+
+### A large sized Widget that gets the (top 4) contributors of a GitHub repository and displays the following infos:
+- Login name
 - Avatar
 - Number of contributions made
 - An App Group is setup among the GitHubRepoWatcher and the RepoWatcherIntents target to share the same UserDefaults database.
+
+![Green Gradient Application Showcase Presentation-2](https://github.com/MatiasMart/RepoWatcher/assets/54157579/404d6365-b5b7-4b3e-b039-9b7f7240fb49)
 
 ---
 
