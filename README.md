@@ -1,5 +1,5 @@
 
-<img src="(https://github.com/MatiasMart/RepoWatcher/assets/54157579/89e31d0c-2721-45c3-ada2-7f3d5fcccee3)" width="100"/>
+<img src="[https://github.com/MatiasMart/RepoWatcher/assets/54157579/89e31d0c-2721-45c3-ada2-7f3d5fcccee3]" width="100"/>
 
 ## This project involves creating sophisticated iOS17+ widgets to gain insights into developing medium and large widgets that utilize network requests for updating their content.
 Contents
