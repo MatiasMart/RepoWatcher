@@ -26,7 +26,7 @@ struct CompactRepoProvider: TimelineProvider {
             
             do {
                 // Get Top Repo
-                var repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.googleSignIn)
+                var repo = try await NetworkManager.shared.getRepo(atUrl: repoURL.ObjC)
                 // Get the avatar image of the repo
                 let avatarImageData = await NetworkManager.shared.downloadImageData(from: repo.owner.avatarUrl)
                 // Set the avatar data

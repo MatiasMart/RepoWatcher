@@ -89,8 +89,11 @@ enum NetworkError: Error {
 
 enum repoURL {
     static let swiftNews = "https://api.github.com/repos/SAllen0400/swift-news"
-    static let publish = "https://api.github.com/repos/joshundell/publish"
+    static let ObjC = "https://api.github.com/repos/vlondon/awesome-swiftui"
     static let googleSignIn = "https://api.github.com/repos/google/GoogleSignIn-iOS"
+    static let vsouza = "https://api.github.com/repos/vsouza/awesome-ios"
+    static let learning = "https://api.github.com/repos/eleev/ios-learning-materials"
+    static let OpenSource = "https://api.github.com/repos/dkhamsing/open-source-ios-apps"
     static let contributorsURL = "https://api.github.com/repos/SAllen0400/swift-news/subscribers"
 }
 
