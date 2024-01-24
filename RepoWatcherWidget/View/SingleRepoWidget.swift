@@ -8,17 +8,17 @@
 import SwiftUI
 import WidgetKit
 
-struct ContributorProvider: TimelineProvider {
-    func placeholder(in context: Context) -> ContributorEntry {
-        ContributorEntry(date: .now, repo: MockData.repoOne)
+struct SingleRepoProvider: TimelineProvider {
+    func placeholder(in context: Context) -> SingleRepoEntry {
+        SingleRepoEntry(date: .now, repo: MockData.repoOne)
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (ContributorEntry) -> Void) {
-        let entry = ContributorEntry(date: .now, repo: MockData.repoOne)
+    func getSnapshot(in context: Context, completion: @escaping (SingleRepoEntry) -> Void) {
+        let entry = SingleRepoEntry(date: .now, repo: MockData.repoOne)
         completion(entry)
     }
     
-    func getTimeline(in context: Context, completion: @escaping (Timeline<ContributorEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SingleRepoEntry>) -> Void) {
         Task {
             
             do {
@@ -47,7 +47,7 @@ struct ContributorProvider: TimelineProvider {
                 // Create entry & Timeline
                 
                 
-                let entry = ContributorEntry(date: .now, repo: repo)
+                let entry = SingleRepoEntry(date: .now, repo: repo)
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
             } catch {
@@ -57,13 +57,13 @@ struct ContributorProvider: TimelineProvider {
     }
 }
 
-struct ContributorEntry: TimelineEntry {
+struct SingleRepoEntry: TimelineEntry {
     var date: Date
     let repo: Repository
 }
 
-struct ContributorEntryView : View {
-    var entry: ContributorEntry
+struct SingleEntryView : View {
+    var entry: SingleRepoEntry
     
     var body: some View {
         VStack{
@@ -75,33 +75,33 @@ struct ContributorEntryView : View {
     }
 }
 
-struct ContributorWidget: Widget {
-    let kind: String = "ContributorWidget"
+struct SingleRepoWidget: Widget {
+    let kind: String = "SingleRepoWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: ContributorProvider()) { entry in
+        StaticConfiguration(kind: kind, provider: SingleRepoProvider()) { entry in
             if #available(iOS 17.0, *) {
-                ContributorEntryView(entry: entry)
+                SingleEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                ContributorEntryView(entry: entry)
+                SingleEntryView(entry: entry)
                     .padding()
                     .background()
             }
         }
-        .configurationDisplayName("Contributors")
-        .description("Keep track of a repository's top contributors")
-        .supportedFamilies([.systemLarge])
+        .configurationDisplayName("SingleRepo")
+        .description("Keep track of a single repository's top contributors")
+        .supportedFamilies([.systemMedium, .systemLarge])
     }
 }
 
 #Preview(as: .systemLarge) {
-    ContributorWidget()
+    SingleRepoWidget()
 } timeline: {
-    ContributorEntry(
+    SingleRepoEntry(
         date: .now, repo: MockData.repoOne
     )
-    ContributorEntry(
+    SingleRepoEntry(
         date: .now, repo: MockData.repoOneV2
     )
 }

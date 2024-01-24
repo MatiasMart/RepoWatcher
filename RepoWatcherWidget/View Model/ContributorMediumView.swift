@@ -43,12 +43,12 @@ struct ContributorMediumView: View {
 }
 
 #Preview(as: .systemLarge) {
-    ContributorWidget()
+    SingleRepoWidget()
 } timeline: {
-    ContributorEntry(
+    SingleRepoEntry(
         date: .now, repo: MockData.repoOne
     )
-    ContributorEntry(
+    SingleRepoEntry(
         date: .now, repo: MockData.repoOneV2
     )
 }
